@@ -6,6 +6,7 @@ import {
   Stack,
   Card,
   Group,
+  Badge,
   Checkbox,
   ActionIcon,
 } from "@mantine/core";
@@ -41,6 +42,17 @@ export default function HomePage() {
               <Group justify="space-between" align="flex-start">
                 <Stack>
                   {/* เพิ่ม assignees ตรงนี้*/}
+                  <Group>
+                    {task.assignees.map((user) => (
+                      <Badge
+                        size="sm"
+                        variant="light"
+                        color="pink"
+                      >
+                        {user}
+                      </Badge>
+                    ))}
+                  </Group>
                   <Text
                     fw={600}
                     td={task.isDone ? "line-through" : "none"}
@@ -48,7 +60,6 @@ export default function HomePage() {
                   >
                     {task.title}
                   </Text>
-
                   <Text size="sm" c="dimmed">
                     {task.description}
                   </Text>
